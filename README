@@ -1,0 +1,14 @@
+## README D3 Template
+
+This is a exploration project structure for using D3 to
+visualize divergence in a large data set
+
+### Build
+$ npm install
+
+### Run
+$ cd ${project_top_level_directory}
+$ http
+
+Browse to 
+http://localhost:8080

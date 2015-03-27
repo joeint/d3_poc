@@ -1,0 +1,23 @@
+{
+	"name": "d3-divergence-chart",
+	"version": "0.1.0",
+	"description" : "Exploration of a data divergence chart",
+	"keywords": ["data visualization", "d3"],
+	"homepage": "http://d3.xivvic.com",
+	"author": 
+		{ 
+		"name": "reid",
+		"email": "reid@foobox.com",
+		"url" : "TBD"
+		},
+
+	"repository": "http://bitbucket.org/crttcr/d3-divergence",
+	"dependencies": 
+		{ 
+		  "d3": "3.x" 
+		},
+	"devDependencies": 
+		{ 
+		"uglify-js": "2.x"
+		}
+}

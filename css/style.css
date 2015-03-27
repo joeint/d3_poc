@@ -1,0 +1,66 @@
+body 
+{
+}
+
+
+.axis path, line
+{
+	stroke:black;
+}
+
+.line
+{
+	float: left;
+}
+
+.line_container
+{
+	height: 20px;
+	width: 150px;
+}
+
+path
+{
+	fill: none;
+}
+
+.key
+{
+	float: right;
+}
+
+.key_line
+{
+	font-size: 17px;
+	width: 100%;
+}
+
+.key_square
+{
+	height: 10px;
+	width: 10px;
+	outline: solid 1px black;
+	float: left;
+	margin: 6px 10px 0px 10px;
+}
+
+#timeseries
+{
+	float: left;
+}
+
+#divergence
+{
+	background-color: #ccc;
+}
+
+
+.chart
+{
+	background-color: yellow;
+}
+
+h1 
+{
+    background-color: #00ff00;
+}
