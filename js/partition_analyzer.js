@@ -19,6 +19,8 @@ function Analyzer(data, partition_function, data_sort_function, bucket_sort_func
 		bucket_sort_function = function(a, b) { return a.localeCompare(b)};	
 	}	
 
+	// Returns the tick position within the corresponding bucket
+	//
 	this.bucketTickPosition = function(key) {
 		var bucket_object = buckets.get(key);
 		var x = (bucket_object.count + bucket_object.start_at) * unit_width;
@@ -26,6 +28,8 @@ function Analyzer(data, partition_function, data_sort_function, bucket_sort_func
 		return x;
 	}
 
+	// Returns the x position 
+	//
 	this.x = function(item, index)
 	{
 		var bucket_key		= partition_function(item);
@@ -38,15 +42,18 @@ function Analyzer(data, partition_function, data_sort_function, bucket_sort_func
 	}
 
 
+	// Return the y value based on the exponential function
+	// Val - is the z score 
+	// If the val exceeds 3 sigma then set it to the max sigma value of 3
+	//
 	this.y = function(val, index)
-	{
-		// var bucket = partition_function(item);
+	{		
 
 		var yVal;
 		var x = val;
 
-		// anything more than sigma of 4 will result of
-		// sigma of 4
+		// setting an upper and lower bound sigma values
+		//
 		if (x >= 3) {
 			x = 3
 		}
@@ -54,6 +61,7 @@ function Analyzer(data, partition_function, data_sort_function, bucket_sort_func
 			x = -3
 		}
 
+		// compute the e^x where x is the z-score
 		if (val >= 0) {
 			yVal = Math.exp(x)
 		}
@@ -63,6 +71,20 @@ function Analyzer(data, partition_function, data_sort_function, bucket_sort_func
 
 		return yVal;		
 	}	
+
+	// Return the color based on the z score value
+	//
+	this.color = function(zScore) {		
+        if (zScore >= -1 && zScore <= 1)  {
+            return "green";
+        }
+        else if (zScore >= -2 && zScore <= 2) {
+            return "yellow"
+        }
+        else {                    
+            return "purple"
+        }       
+	}
 
 	// Sorting here is used to keep from having to do a second pass because we can 
 	// tally each datum's position within the bucket due to the global ordering of the data.
